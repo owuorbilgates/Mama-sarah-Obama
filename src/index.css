@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Foundation Brand Colors - Warm, trustworthy, hopeful */
+    --background: 42 100% 98%;
+    --foreground: 25 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 15%;
+
+    /* Primary: Vibrant Green representing growth & hope */
+    --primary: 142 69% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 142 69% 85%;
+
+    /* Secondary: Warm Earth tones for trust & warmth */
+    --secondary: 35 100% 95%;
+    --secondary-foreground: 25 25% 15%;
+
+    /* Muted: Soft neutrals for readability */
+    --muted: 42 50% 96%;
+    --muted-foreground: 25 12% 45%;
+
+    /* Accent: Warm orange for CTAs and highlights */
+    --accent: 24 100% 85%;
+    --accent-foreground: 25 25% 15%;
+    --accent-strong: 24 100% 65%;
+
+    /* Supporting colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 42 30% 90%;
+    --input: 42 30% 90%;
+    --ring: 142 69% 58%;
+
+    /* Foundation-specific design tokens */
+    --hope: 142 69% 58%;
+    --warmth: 24 100% 65%;
+    --trust: 210 20% 95%;
+    --earth: 35 60% 85%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--accent-strong)), hsl(var(--accent)));
+    --gradient-trust: linear-gradient(180deg, hsl(var(--background)), hsl(var(--trust)));
+
+    /* Shadows with brand colors */
+    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-warm: 0 8px 30px hsl(var(--accent-strong) / 0.2);
+    --shadow-card: 0 2px 15px hsl(var(--foreground) / 0.05);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode with warm foundation colors */
+    --background: 25 25% 8%;
+    --foreground: 42 50% 95%;
+
+    --card: 25 25% 10%;
+    --card-foreground: 42 50% 95%;
+
+    --popover: 25 25% 10%;
+    --popover-foreground: 42 50% 95%;
+
+    --primary: 142 69% 65%;
+    --primary-foreground: 25 25% 8%;
+    --primary-glow: 142 50% 35%;
+
+    --secondary: 35 30% 15%;
+    --secondary-foreground: 42 50% 95%;
+
+    --muted: 25 15% 15%;
+    --muted-foreground: 42 25% 65%;
+
+    --accent: 24 80% 25%;
+    --accent-foreground: 42 50% 95%;
+    --accent-strong: 24 90% 45%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 42 50% 95%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 20%;
+    --ring: 142 69% 65%;
+
+    /* Dark mode foundation tokens */
+    --hope: 142 69% 65%;
+    --warmth: 24 90% 45%;
+    --trust: 25 15% 12%;
+    --earth: 35 30% 20%;
+    
+    /* Dark gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--primary)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--accent-strong)), hsl(var(--accent)));
+    --gradient-trust: linear-gradient(180deg, hsl(var(--background)), hsl(var(--trust)));
+
+    /* Dark shadows */
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-warm: 0 8px 30px hsl(0 0% 0% / 0.4);
+    --shadow-card: 0 2px 15px hsl(0 0% 0% / 0.2);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
