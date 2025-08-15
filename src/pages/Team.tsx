@@ -54,13 +54,6 @@ const Team = () => {
       bio: "A dynamic communications and development expert with 20 years of experience spanning communications, fundraising, program management, and technology innovation.",
       quote: "Empowering communities begins with clear communication, purpose-driven action, and the courage to innovate.",
       image: paulSaoke
-    },    
-    {
-      name: "Bilgates Owuor",
-      title: "Software Engineer & IT Specialist",
-      bio: "A proficient software engineer with deep expertise in designing and deploying scalable digital solutions for enterprise and community impact.",
-      quote: "Great software solves problems—it’s not just code, it’s a tool that transforms ideas into positive community change.",
-      image: bilgatesOwuor
     }
 
 
