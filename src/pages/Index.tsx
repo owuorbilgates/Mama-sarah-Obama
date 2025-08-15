@@ -3,6 +3,7 @@ import Footer from "@/components/Footer"
 import Hero from "@/components/Hero"
 import Programs from "@/components/Programs"
 import Impact from "@/components/Impact"
+import PartnersSection from "@/components/PartnersSection"
 import CallToAction from "@/components/CallToAction"
 
 const Index = () => {
@@ -12,6 +13,7 @@ const Index = () => {
       <Hero />
       <Programs />
       <Impact />
+      <PartnersSection />
       <CallToAction />
       <Footer />
     </div>

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Heart, Menu, X } from "lucide-react"
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import logoImage from "@/assets/programms/logo-1-preview-min.png"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -9,13 +10,13 @@ const Header = () => {
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Our Work", href: "/our-work" },
     { name: "About Us", href: "/about" },
+    { name: "Thematic Areas", href: "/our-work" },    
     { name: "Get Involved", href: "/get-involved" },
-    { name: "Team", href: "/team" },
-    { name: "Programs", href: "/programs" },
+    { name: "Team", href: "/team"},
     { name: "Contact", href: "/contact" },
   ]
+
 
   const isActive = (href: string) => location.pathname === href
 
@@ -30,7 +31,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
             <img
-                src="/src/assets/logo-1-preview-min.png"
+                src={logoImage}
                 alt="Mama Sarah Obama Children Foundation"
                 className="w-25 h-12 object-contain"
                 style={{ display: "block" }}
@@ -58,12 +59,17 @@ const Header = () => {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
+            <Link to="/volunteer">
             <Button variant="volunteer" size="sm">
               Volunteer
             </Button>
-            <Button variant="donate" size="sm" style={{ backgroundColor: "#E0010C" }}>
+          </Link>
+          <Link to="/donate">
+            <Button variant="donate" size="sm" style={{ backgroundColor: "#D90F12" }}>
               Donate Now
             </Button>
+          </Link>
+
           </div>
 
           {/* Mobile menu button */}
@@ -99,7 +105,7 @@ const Header = () => {
                 <Button variant="volunteer" size="sm" className="w-full">
                   Volunteer
                 </Button>
-                <Button variant="donate" size="sm" className="w-full">
+                <Button variant="donate" size="sm" className="w-full" style={{ backgroundColor: "#D90F12" }}>
                   Donate Now
                 </Button>
               </div>

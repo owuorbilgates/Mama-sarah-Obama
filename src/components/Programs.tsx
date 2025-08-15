@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { BookOpen, Heart, Droplets, Utensils, ArrowRight } from "lucide-react"
-import educationImage from "@/assets/programs-education.jpg"
-import healthImage from "@/assets/programs-health.jpg"
-import waterImage from "@/assets/programs-water.jpg"
+import educationImage from "@/assets/programms/educationw.jpg"
+import healthImage from "@/assets/programms/health.jpg"
+import waterImage from "@/assets/programms/water.jpg"
+import nutritionImage from "@/assets/programms/banana.jpg"
 
 const Programs = () => {
   const programs = [
@@ -13,7 +14,8 @@ const Programs = () => {
       description: "Child sponsorship programs ensuring every orphan and vulnerable child gets quality education and a chance for a better future.",
       image: educationImage,
       stats: "200+ children sponsored",
-      color: "text-primary"
+      color: "text-primary",
+      link: "/education-support"
     },
     {
       icon: Heart,
@@ -21,7 +23,8 @@ const Programs = () => {
       description: "Comprehensive healthcare programs ensuring children receive proper medical care and live healthier lifestyles.",
       image: healthImage,
       stats: "1,000+ medical checkups",
-      color: "text-red-600"
+      color: "text-red-600",
+      link: "/healthcare-services"
     },
     {
       icon: Droplets,
@@ -29,15 +32,17 @@ const Programs = () => {
       description: "Sinking boreholes to provide clean drinking water and tackle water-borne diseases in rural villages.",
       image: waterImage,
       stats: "15 wells constructed",
-      color: "text-foundation-hope"
+      color: "text-foundation-hope",
+      link: "/clean-water-access"
     },
     {
       icon: Utensils,
       title: "Nutrition Programs",
       description: "Promoting food security and improving nutrition by working with children and their families within communities.",
-      image: educationImage,
+      image: nutritionImage,
       stats: "500+ families reached",
-      color: "text-red-600"
+      color: "text-red-600",
+      link: "/nutrition-programs"
     }
   ]
 
@@ -50,7 +55,7 @@ const Programs = () => {
             Our <span className="text-primary">Programs</span>
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            We work across four key areas to create lasting change in the lives of vulnerable children and communities across Kenya.
+            We work to create lasting change in the lives of vulnerable children and communities across Kenya.
           </p>
         </div>
 
@@ -86,10 +91,13 @@ const Programs = () => {
                     <span className={`text-sm font-semibold ${program.color}`}>
                       {program.stats}
                     </span>
+                    <a href={program.link}>
                     <Button variant="ghost" size="sm" className="group/btn">
                       Learn More
                       <ArrowRight className="h-4 w-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
+                    </a>
+                
                   </div>
                 </CardContent>
               </Card>
@@ -99,10 +107,12 @@ const Programs = () => {
 
         {/* CTA Section */}
         <div className="text-center">
+          <a href="/programs">
           <Button variant="default" size="lg" className="group">
             View All Programs
             <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
+        </a>
         </div>
       </div>
     </section>

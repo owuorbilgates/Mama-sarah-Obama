@@ -1,8 +1,46 @@
 import { Button } from "@/components/ui/button"
 import { Heart, Mail, MapPin, Phone, Facebook, Twitter, Instagram } from "lucide-react"
 import { Link } from "react-router-dom"
+import { useState } from "react"
+import { supabase } from "@/integrations/supabase/client"
+import { useToast } from "@/hooks/use-toast"
 
 const Footer = () => {
+  const { toast } = useToast()
+  const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email) return
+    
+    setIsSubmitting(true)
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email/newsletter', {
+        body: { email }
+      })
+
+      if (error) throw error
+
+      toast({
+        title: "Success!",
+        description: data.message || "Thanks for subscribing!",
+      })
+
+      setEmail('')
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error)
+      toast({
+        title: "Error",
+        description: "There was an error subscribing. Please try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <footer className="bg-foundation-trust text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,12 +49,15 @@ const Footer = () => {
           {/* Organization Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img
-                src="/src/assets/logo-1-preview-min.png"
-                alt="Mama Sarah Obama Children Foundation Logo"
-                className="w-25 h-14 object-contain"
-              />
-              
+              <Heart className="h-8 w-8 text-primary" />
+              <div className="flex flex-col">
+                <span className="text-lg font-bold leading-tight">
+                  Mama Sarah Obama
+                </span>
+                <span className="text-sm text-primary font-medium leading-tight">
+                  Children Foundation
+                </span>
+              </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Nurturing future generations through education, healthcare, and community development in Kenya since 2009.
@@ -86,10 +127,10 @@ const Footer = () => {
                   <p>Counties, Kenya</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
+              {/*<div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">+254 xxx xxx xxx</span>
-              </div>
+                <span className="text-sm text-muted-foreground">+254 721 214 440</span>
+              </div>*/}
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                 <span className="text-sm text-muted-foreground">info@obamachildren.org</span>
@@ -105,14 +146,19 @@ const Footer = () => {
             <p className="text-muted-foreground mb-4">
               Get updates on our impact and upcoming events
             </p>
-            <div className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 px-4 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                required
               />
-              <Button variant="default">Subscribe</Button>
-            </div>
+              <Button type="submit" variant="default" disabled={isSubmitting}>
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+              </Button>
+            </form>
           </div>
         </div>
 
@@ -120,7 +166,7 @@ const Footer = () => {
         <div className="border-t border-border py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
-              © 2025 Mama Sarah Obama Children Foundation. All rights reserved.| Built with ❤ <a href="https://creativeminds.ct.ws">Creative Minds</a>
+              © 2024 Mama Sarah Obama Children Foundation. All rights reserved. | Built with ❤ <a href="https://www.linkedin.com/in/bilgates-owuor-56591b277/" target="_blank">Bilgates</a>
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary">

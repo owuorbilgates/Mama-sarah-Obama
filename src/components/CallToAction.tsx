@@ -29,10 +29,12 @@ const CallToAction = () => {
                   Your donation directly supports our education, healthcare, and community development programs.
                 </p>
               </div>
+              <a href="/donate">
               <Button variant="hero" size="lg" className="w-full group/btn">
                 Donate Now
                 <ArrowRight className="h-5 w-5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
               </Button>
+            </a>
             </div>
 
             {/* Volunteer Card */}
@@ -46,10 +48,12 @@ const CallToAction = () => {
                   Join our team of dedicated volunteers and contribute your skills to make a lasting impact.
                 </p>
               </div>
+              <a href="/volunteer">
               <Button variant="outline" size="lg" className="w-full bg-white/10 border-white/30 text-white hover:bg-white/20 group/btn">
                 Get Involved
                 <ArrowRight className="h-5 w-5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
               </Button>
+              </a>
             </div>
           </div>
 
@@ -58,9 +62,11 @@ const CallToAction = () => {
             <p className="text-white/80 mb-4">
               Have questions? Want to learn more about our programs?
             </p>
+            <a href="/contact">
             <Button variant="ghost" className="text-white hover:bg-white/10 border border-white/30">
               Contact Us Today
             </Button>
+          </a>
           </div>
         </div>
       </div>

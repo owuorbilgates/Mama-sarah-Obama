@@ -5,7 +5,7 @@ const Impact = () => {
   const stats = [
     {
       icon: Users,
-      value: "500+",
+      value: "25000+",
       label: "Children Supported",
       description: "Vulnerable children receiving ongoing support and care",
       color: "text-primary"
@@ -19,7 +19,7 @@ const Impact = () => {
     },
     {
       icon: Heart,
-      value: "1,000+",
+      value: "3,000+",
       label: "Health Checkups",
       description: "Medical examinations and treatments provided",
       color: "text-foundation-hope"
